@@ -18,7 +18,7 @@ namespace BetterHeals.Patches
                 rm.levelCurrent == rm.levelMainMenu ||
                 rm.levelCurrent == rm.levelLobbyMenu ||
                 rm.levelCurrent == rm.levelLobby ||
-                rm.levelCurrent == rm.levelShop ||
+                rm.levelShop.Contains(rm.levelCurrent) ||
                 rm.levelCurrent == rm.levelRecording ||
                 rm.levelCurrent == rm.levelSplashScreen)
             {

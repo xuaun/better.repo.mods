@@ -20,7 +20,7 @@ namespace BetterHeals.Patches
                 rm.levelCurrent == rm.levelMainMenu ||
                 rm.levelCurrent == rm.levelLobbyMenu ||
                 rm.levelCurrent == rm.levelLobby ||
-                rm.levelCurrent == rm.levelShop ||
+                rm.levelShop.Contains(rm.levelCurrent) ||
                 rm.levelCurrent == rm.levelRecording ||
                 rm.levelCurrent == rm.levelSplashScreen)
             {
@@ -56,14 +56,14 @@ namespace BetterHeals.Patches
     {
         [HarmonyPatch(typeof(LevelGenerator), "GenerateDone")]
         [HarmonyPostfix]
-        static void Start_Postfix(PlayerController __instance)
+        static void Start_Postfix(LevelGenerator __instance)
         {
             RunManager rm = RunManager.instance;
             if (rm == null ||
                 rm.levelCurrent == rm.levelMainMenu ||
                 rm.levelCurrent == rm.levelLobbyMenu ||
                 rm.levelCurrent == rm.levelLobby ||
-                rm.levelCurrent == rm.levelShop ||
+                rm.levelShop.Contains(rm.levelCurrent) ||
                 rm.levelCurrent == rm.levelRecording ||
                 rm.levelCurrent == rm.levelSplashScreen)
             {
